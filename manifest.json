@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "GPT 提示詞助手",
+    "version": "1.0",
+    "description": "在 GPT 輸入框中輸入自訂義關鍵字時彈出提示詞清單。",
+    "permissions": [
+        "storage"
+    ],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "action": {
+        "default_title": "GPT 提示詞助手",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://chatgpt.com/*",
+                "https://gemini.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "styles.css"
+            ]
+        }
+    ]
+}
